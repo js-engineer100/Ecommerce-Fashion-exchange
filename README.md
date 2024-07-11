@@ -21,7 +21,7 @@ Fashion Exchange Store is an online marketplace built with PHP, MySQL, and Boots
 
 #### 2. Features
 
-- **Buy ** Users can purchase fashion items for sale, complete with descriptions, prices, and images.
+- **Buy** Users can purchase fashion items for sale, complete with descriptions, prices, and images.
 - **Exchange:** Facilitate item exchanges directly between users to diversify fashion collections.
 - **Search & Filter:** Easily find specific items using search and filter functionalities.
 - **User Authentication:** Secure user registration, login, and profile management.
@@ -36,21 +36,27 @@ Fashion Exchange Store is an online marketplace built with PHP, MySQL, and Boots
 #### 3. Screenshots
 
 ![Screenshot 1](Screenshots/screenshot1.png)
-*Description of screenshot 1.*
+*index.php*
 
 ![Screenshot 2](Screenshots/screenshot2.png)
-*Description of screenshot 2.*
+*product.php(New Arrivals)*
 
 ![Screenshot 3](Screenshots/screenshot3.png)
-*Description of screenshot 3.*
+*product.php(Best Seller)* 
+
 ![Screenshot 4](Screenshots/screenshot4.png)
 *Description of screenshot 3.*
+
 ![Screenshot 5](Screenshots/screenshot5.png)
 *Description of screenshot 3.*
+
 ![Screenshot 6](Screenshots/screenshot6.png)
-*Description of screenshot 3.*
+*Cart.php*
+
 ![Screenshot 7](Screenshots/screenshot7.png)
-*Description of screenshot 3.*
+*Checkout.php*
+
+STEPS
 ---
 
 #### 4. Installation

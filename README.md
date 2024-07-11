@@ -45,10 +45,10 @@ Fashion Exchange Store is an online marketplace built with PHP, MySQL, and Boots
 *product.php(Best Seller)* 
 
 ![Screenshot 4](Screenshots/screenshot4.png)
-*Description of screenshot 3.*
+*Admin Panel*
 
 ![Screenshot 5](Screenshots/screenshot5.png)
-*Description of screenshot 3.*
+*Product Description & review*
 
 ![Screenshot 6](Screenshots/screenshot6.png)
 *Cart.php*
@@ -65,16 +65,16 @@ To run Fashion Exchange Store locally or on a server, follow these steps:
 
 1. **Clone Repository:**
    ```
-   git clone https://github.com/your/repository.git
+   git clone https://github.com/js-engineer100/Ecommerce-Fashion-exchange.git
    ```
 
 2. **Database Setup:**
-   - Create a MySQL database.
-   - Import `database.sql` file provided in the `db` folder to set up tables.
+   - Create a MySQL database name it ecommerce.
+   - Import `ecommerce.sql` file provided in the `database` folder in the ecommerce database to set up tables.
 
 3. **Configuration:**
-   - Rename `config/config.example.php` to `config/config.php`.
-   - Update `config.php` with your database credentials.
+   - Check `connection.php`.
+ 
 
 4. **Run:**
    - Start your PHP development server or configure Apache/Nginx to serve the application.

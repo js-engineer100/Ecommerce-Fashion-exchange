@@ -1,0 +1,246 @@
+.feild_error {
+  color: red;
+}
+
+.fr__btn {
+  background: deepskyblue;
+  border-radius: 50px;
+  border: 1px solid deepskyblue;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.fr__btn::selection {
+  background: white !important;
+  color: white !important;
+}
+
+.fr__btn:hover {
+  background: white !important;
+  color: deepskyblue;
+  border: 1px solid deepskyblue;
+}
+
+.contact-btn .fv-btn button {
+  background: deepskyblue !important;
+  border: 1px solid deepskyblue !important;
+  border-radius: 5px !important;
+}
+
+.cr__btn a {
+  background: lightseagreen !important;
+}
+
+.owl-prev {
+  background: lightseagreen !important;
+}
+
+.owl-next {
+  background: lightseagreen !important;
+}
+
+.social__link li a:hover i {
+  background: lightseagreen !important;
+}
+
+#scrollUp {
+  background: deepskyblue !important;
+}
+
+.hoverni:hover {
+  background: deepskyblue !important;
+  border-radius: 50px;
+}
+
+.ft__details:hover p {
+  cursor: pointer;
+  color: lightseagreen !important;
+  transform: scale(1.01);
+}
+
+.ft__list li a:hover {
+  color: lightseagreen;
+}
+
+.new-arrivals-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.new-arrivals-strip {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  animation: moveStrip linear 18s infinite;
+  /* adjust timing as needed */
+}
+
+.new-arrivals-content {
+  display: inline-block;
+  font-weight: bolder;
+  font-size: -webkit-xxx-large;
+  padding: 20px 20px;
+  color: lightseagreen;
+}
+
+@keyframes moveStrip {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.new-arrivals-strip:hover {
+  animation-play-state: paused;
+}
+
+.sin__desc {
+  margin-bottom: 12px;
+}
+
+.sin__desc p span {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px;
+  /* Adjust spacing between label and select */
+}
+
+.sin__desc p {
+  color: green;
+  /* Set text color to green */
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+.pro__cat__list li a {
+  color: deepskyblue !important;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+.pro__tab__content__inner {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.pro__info {
+  /* font-size: 5px; */
+  font-family: sans-serif !important;
+}
+
+#qty {
+  margin-top: 10px;
+  outline: none;
+}
+
+.ht__product__dtl p {
+  font-size: 18px;
+}
+
+.pro__prize li {
+  font-size: 24px;
+}
+
+.search__area .search__inner form button:hover {
+  background: lightseagreen none repeat scroll 0 0 !important;
+}
+
+.ht__cat__thumb a img {
+  width: 100% !important;
+  min-height: 344px !important;
+  max-height: 344px !important;
+}
+
+.best-seller-strip {
+  background: #daf5ff;
+  color: lightseagreen;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.best-seller-title {
+  display: inline-block;
+  font-weight: bolder;
+  font-size: xxx-large;
+  font-family: "Old Standard TT";
+  padding-right: 50px;
+  animation: move-title 4s linear infinite;
+  color: lightseagreen;
+}
+
+.best-seller-strip:hover .best-seller-title {
+  animation-play-state: paused;
+}
+
+@keyframes move-title {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.borderrr {
+  border-radius: 10px;
+}
+
+.review_heading {
+  font-size: 30px;
+  color: lightskyblue;
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+#review .comment-rating {
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+.submit_review_hint {
+  font-size: 20px;
+  color: lightseagreen;
+}
+
+.comment-post p {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.buy_now {
+  background: lightseagreen;
+  border: 1px solid lightseagreen !important;
+  border-radius: 50px;
+}
+
+.buy_now:hover {
+  background: white;
+  color: lightseagreen;
+}
+
+#social_share_box {
+  margin-top: 30px;
+  width: 150px;
+}
+
+#social_share_box img {
+  width: 20%;
+  margin-left: 10px;
+}
+
+#sharep {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 7px;
+  ;
+}
+
+.tab-content>.active {
+  max-width: 400px !important;
+}

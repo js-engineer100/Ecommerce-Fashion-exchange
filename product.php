@@ -2,24 +2,24 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-require ('top.php');
+require('top.php');
 if (isset($_GET['id'])) {
     $product_id = mysqli_real_escape_string($conn, $_GET['id']);
     if ($product_id > 0) {
         $get_product = get_product($conn, '', '', $product_id);
     } else {
-        ?>
+?>
         <script>
             window.location.href = 'index.php';
         </script>
-        <?php
+    <?php
     }
 } else {
     ?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 
 if (isset($_POST['review_submit'])) {
@@ -39,8 +39,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
 ?>
 
 <!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area"
-    style="background: rgba(0, 0, 0, 0) url(images/bg/14.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/14.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -49,8 +48,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                         <nav class="bradcaump-inner">
                             <a class="breadcrumb-item" href="index.php">Home</a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <a class="breadcrumb-item"
-                                href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"><?php echo $get_product['0']['categories'] ?></a>
+                            <a class="breadcrumb-item" href="categories.php?id=<?php echo $get_product['0']['categories_id'] ?>"><?php echo $get_product['0']['categories'] ?></a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                             <span class="breadcrumb-item active"><?php echo $get_product['0']['name'] ?></span>
                         </nav>
@@ -73,10 +71,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                         <div class="product__big__images">
                             <div class="portfolio-full-image tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active imageZoom" id="img-tab-1">
-                                    <img width=""
-                                        data-origin="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
-                                        src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" style="border-radius:20px;"
-                                        >
+                                    <img width="" data-origin="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>">
                                 </div>
                             </div>
                         </div>
@@ -114,7 +109,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                             <div class="sin__desc">
                                 <?php
                                 if ($cart_show != '') {
-                                    ?>
+                                ?>
                                     <p><span>Qty:</span>
                                         <select id="qty">
                                             <?php
@@ -138,22 +133,15 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                     </div>
                     <?php
                     if ($cart_show != '') {
-                        ?>
-                        <a class="fr__btn" href="javascript:void(0)"
-                            onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
-                        <a class="fr__btn buy_now" href="javascript:void(0)"
-                            onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','yes')">Buy Now</a>
+                    ?>
+                        <a class="fr__btn" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
+                        <a class="fr__btn buy_now" href="javascript:void(0)" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add','yes')">Buy Now</a>
                     <?php } ?>
                     <div id="social_share_box">
                         <div id="sharep">Social Media Share:</div>
-                        <a href="https://facebook.com/share.php?u=<?php echo $meta_url ?>"><img
-                                src='images/icons/facebook.png' /></a>
-                        <a
-                            href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img
-                                src='images/icons/twitter.jpg' /></a>
-                        <a
-                            href="https://api.whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img
-                                src='images/icons/whatsapp.png' /></a>
+                        <a href="https://facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/icons/facebook.png' /></a>
+                        <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/icons/twitter.jpg' /></a>
+                        <a href="https://api.whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/icons/whatsapp.png' /></a>
                     </div>
                 </div>
             </div>
@@ -163,18 +151,15 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
     <!-- End Product Details Top -->
 </section>
 <!-- End Product Details Area -->
-        <!-- Start Product Description -->
+<!-- Start Product Description -->
 <section class="htc__produc__decription bg__white">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <!-- Start List And Grid View -->
                 <ul class="pro__details__tab borderrr" role="tablist" style="background:lightblue;">
-                    <li role="presentation" class="description active"><a href="#description" role="tab"
-                            data-toggle="tab" style="font-weight: bolder;font-size: x-large;">description</a></li>
-                    <li role="presentation" class="review"><a href="#review" role="tab" data-toggle="tab"
-                            class="active show" aria-selected="true"
-                            style="font-weight:bolder;font-size:x-large;">review</a></li>
+                    <li role="presentation" class="description active"><a href="#description" role="tab" data-toggle="tab" style="font-weight: bolder;font-size: x-large;">description</a></li>
+                    <li role="presentation" class="review"><a href="#review" role="tab" data-toggle="tab" class="active show" aria-selected="true" style="font-weight:bolder;font-size:x-large;">review</a></li>
                 </ul>
                 <!-- End List And Grid View -->
             </div>
@@ -199,7 +184,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                             if (mysqli_num_rows($product_review_res) > 0) {
 
                                 while ($product_review_row = mysqli_fetch_assoc($product_review_res)) {
-                                    ?>
+                            ?>
 
                                     <article class="row">
                                         <div class="col-md-12 col-sm-12">
@@ -228,7 +213,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                                             </div>
                                         </div>
                                     </article>
-                                <?php }
+                            <?php }
                             } else {
                                 echo "<h3 class='submit_review_hint'>No review added</h3><br/>";
                             }
@@ -238,7 +223,7 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                             <h3 class="review_heading">Enter your review...</h3><br />
                             <?php
                             if (isset($_SESSION['USER_LOGIN'])) {
-                                ?>
+                            ?>
                                 <div class="row" id="post-review-box">
                                     <div class="col-md-12">
                                         <form action="" method="post">
@@ -250,11 +235,9 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                                                 <option>Very Good</option>
                                                 <option>Fantastic</option>
                                             </select> <br />
-                                            <textarea class="form-control" cols="50" id="new-review" name="review"
-                                                placeholder="Enter your review here..." rows="5"></textarea>
+                                            <textarea class="form-control" cols="50" id="new-review" name="review" placeholder="Enter your review here..." rows="5"></textarea>
                                             <div class="text-right mt10" style="margin-top:1rem;">
-                                                <button class="btn btn-info btn-lg" type="submit"
-                                                    name="review_submit">Submit</button>
+                                                <button class="btn btn-info btn-lg" type="submit" name="review_submit">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -274,4 +257,4 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
 <!-- End Product Description -->
 
 
-<?php require ('footer.php') ?>
+<?php require('footer.php') ?>

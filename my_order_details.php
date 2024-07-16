@@ -21,7 +21,7 @@ $coupon_value = $coupon_details['coupon_value'];
                 <div class="col-xs-12">
                     <div class="bradcaump__inner">
                         <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.html">Home</a>
+                            <a class="breadcrumb-item" href="index.php">Home</a>
                             <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
                             <span class="breadcrumb-item active">My Order Details</span>
                         </nav>
@@ -42,7 +42,7 @@ $coupon_value = $coupon_details['coupon_value'];
                         <div class="wishlist-table table-responsive">
                             <table>
                                 <thead>
-                                    <tr>
+                                    <tr style="background:lightblue;">
                                         <th class="product-thumbnail">Product Name</th>
                                         <th class="product-thumbnail">Product Image</th>
                                         <th class="product-name">Qty</th>

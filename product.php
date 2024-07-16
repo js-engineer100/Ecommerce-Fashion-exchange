@@ -75,7 +75,8 @@ $product_review_res = mysqli_query($conn, "select users.name,product_review.id,p
                                 <div role="tabpanel" class="tab-pane fade in active imageZoom" id="img-tab-1">
                                     <img width=""
                                         data-origin="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
-                                        src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>">
+                                        src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" style="border-radius:20px;"
+                                        >
                                 </div>
                             </div>
                         </div>

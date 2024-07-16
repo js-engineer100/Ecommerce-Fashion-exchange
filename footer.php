@@ -152,9 +152,6 @@
 <script src="js/jquery.imgzoom.js"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="js/main.js"></script>
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 

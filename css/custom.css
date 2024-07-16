@@ -149,6 +149,7 @@
 }
 
 .ht__cat__thumb a img {
+  border-radius: 20px !important;
   width: 100% !important;
   min-height: 344px !important;
   max-height: 344px !important;

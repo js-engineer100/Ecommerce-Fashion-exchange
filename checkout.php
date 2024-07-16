@@ -1,11 +1,10 @@
 <?php
-
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
+require('top.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require ('top.php');
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
@@ -25,7 +24,6 @@ if (isset($_POST['submit'])) {
         $price = $productArr[0]['price'];
         $qty = $val['qty'];
         $cart_total = $cart_total + ($price * $qty);
-
     }
     $total_price = $cart_total;
     $payment_status = 'pending';
@@ -63,28 +61,23 @@ if (isset($_POST['submit'])) {
         $qty = $val['qty'];
 
         mysqli_query($conn, "insert into `order_detail`(order_id,product_id,qty,price) values('$order_id','$key','$qty','$price')");
-
     }
     unset($_SESSION['cart']);
     if ($payment_type == 'stripe') {
-        echo 'hello';
-
     } else {
 
-        ?>
+    ?>
         <script>
             window.location.href = 'thank_you.php';
         </script>
-        <?php
+<?php
     }
-
 }
 
 
 ?>
 
-<div class="ht__bradcaump__area"
-    style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -115,7 +108,7 @@ if (isset($_POST['submit'])) {
                             $accordion_class = 'accordion__title';
                             if (!isset($_SESSION['USER_LOGIN'])) {
                                 $accordion_class = 'accordion__hide';
-                                ?>
+                            ?>
                                 <div class="accordion__title">
                                     Checkout Method
                                 </div>
@@ -127,21 +120,18 @@ if (isset($_POST['submit'])) {
                                                     <form id="login-form" method="post">
                                                         <h5 class="checkout-method__title">Login</h5>
                                                         <div class="single-input">
-                                                            <input type="text" name="login_email" id="login_email"
-                                                                placeholder="Your Email*" style="width:100%">
+                                                            <input type="text" name="login_email" id="login_email" placeholder="Your Email*" style="width:100%">
                                                             <span class="field_error" id="login_email_error"></span>
                                                         </div>
 
                                                         <div class="single-input">
-                                                            <input type="password" name="login_password" id="login_password"
-                                                                placeholder="Your Password*" style="width:100%">
+                                                            <input type="password" name="login_password" id="login_password" placeholder="Your Password*" style="width:100%">
                                                             <span class="field_error" id="login_password_error"></span>
                                                         </div>
 
                                                         <p class="require">* Required fields</p>
                                                         <div class="dark-btn">
-                                                            <button type="button" class="fv-btn"
-                                                                onclick="user_login()">Login</button>
+                                                            <button type="button" class="fv-btn" onclick="user_login()">Login</button>
                                                         </div>
                                                         <div class="form-output login_msg">
                                                             <p class="form-messege field_error"></p>
@@ -154,29 +144,24 @@ if (isset($_POST['submit'])) {
                                                     <form action="#">
                                                         <h5 class="checkout-method__title">Register</h5>
                                                         <div class="single-input">
-                                                            <input type="text" name="name" id="name"
-                                                                placeholder="Your Name*" style="width:100%">
+                                                            <input type="text" name="name" id="name" placeholder="Your Name*" style="width:100%">
                                                             <span class="field_error" id="name_error"></span>
                                                         </div>
                                                         <div class="single-input">
-                                                            <input type="text" name="email" id="email"
-                                                                placeholder="Your Email*" style="width:100%">
+                                                            <input type="text" name="email" id="email" placeholder="Your Email*" style="width:100%">
                                                             <span class="field_error" id="email_error"></span>
                                                         </div>
 
                                                         <div class="single-input">
-                                                            <input type="text" name="mobile" id="mobile"
-                                                                placeholder="Your Mobile*" style="width:100%">
+                                                            <input type="text" name="mobile" id="mobile" placeholder="Your Mobile*" style="width:100%">
                                                             <span class="field_error" id="mobile_error"></span>
                                                         </div>
                                                         <div class="single-input">
-                                                            <input type="password" name="password" id="password"
-                                                                placeholder="Your Password*" style="width:100%">
+                                                            <input type="password" name="password" id="password" placeholder="Your Password*" style="width:100%">
                                                             <span class="field_error" id="password_error"></span>
                                                         </div>
                                                         <div class="dark-btn">
-                                                            <button type="button" class="fv-btn"
-                                                                onclick="user_register()">Register</button>
+                                                            <button type="button" class="fv-btn" onclick="user_register()">Register</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -195,8 +180,7 @@ if (isset($_POST['submit'])) {
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="single-input">
-                                                    <input type="text" name="address" placeholder="Street Address"
-                                                        required>
+                                                    <input type="text" name="address" placeholder="Street Address" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -206,8 +190,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="single-input">
-                                                    <input type="text" name="pincode" placeholder="Post code/ zip"
-                                                        required>
+                                                    <input type="text" name="pincode" placeholder="Post code/ zip" required>
                                                 </div>
                                             </div>
 
@@ -222,16 +205,14 @@ if (isset($_POST['submit'])) {
                                     <div class="paymentinfo">
                                         <div class="single-method">
                                             COD <input type="radio" name="payment_type" value="COD" required />
-                                            &nbsp;&nbsp;Stripe <input type="radio" name="payment_type" value="stripe"
-                                                required />
+                                            &nbsp;&nbsp;Stripe <input type="radio" name="payment_type" value="stripe" required />
                                         </div>
                                         <div class="single-method">
 
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" name="submit"
-                                    style="width: 10rem;height: 3rem;outline: none;border: none;border-radius: 50px;font-weight:bold;font-size:18px;background:aliceblue;color:lightseagreen;">
+                                <input type="submit" name="submit" style="width: 10rem;height: 3rem;outline: none;border: none;border-radius: 50px;font-weight:bold;font-size:18px;background:aliceblue;color:lightseagreen;">
                             </form>
                         </div>
                     </div>
@@ -251,7 +232,7 @@ if (isset($_POST['submit'])) {
                             $image = $productArr[0]['image'];
                             $qty = $val['qty'];
                             $cart_total = $cart_total + ($price * $qty);
-                            ?>
+                        ?>
                             <div class="single-item">
                                 <div class="single-item__thumb">
                                     <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $image ?>" />
@@ -261,8 +242,7 @@ if (isset($_POST['submit'])) {
                                     <span class="price"><?php echo "&#x20B9;" . $price * $qty ?></span>
                                 </div>
                                 <div class="single-item__remove">
-                                    <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')"><i
-                                            class="icon-trash icons"></i></a>
+                                    <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key ?>','remove')"><i class="icon-trash icons"></i></a>
                                 </div>
                             </div>
                         <?php } ?>
@@ -277,8 +257,7 @@ if (isset($_POST['submit'])) {
                     </div>
 
                     <div class="ordre-details__total bilinfo">
-                        <input type="textbox" id="coupon_str" class="coupon_style mr5" /> <input type="button"
-                            name="submit" class="fv-btn coupon_style" value="Apply Coupon" onclick="set_coupon()" />
+                        <input type="textbox" id="coupon_str" class="coupon_style mr5" /> <input type="button" name="submit" class="fv-btn coupon_style" value="Apply Coupon" onclick="set_coupon()" />
 
                     </div>
                     <div id="coupon_result"></div>
@@ -298,7 +277,7 @@ if (isset($_POST['submit'])) {
                 url: 'set_coupon.php',
                 type: 'post',
                 data: 'coupon_str=' + coupon_str,
-                success: function (result) {
+                success: function(result) {
                     var data = jQuery.parseJSON(result);
                     if (data.is_error == 'yes') {
                         jQuery('#coupon_box').hide();
@@ -321,5 +300,5 @@ if (isset($_SESSION['COUPON_ID'])) {
     unset($_SESSION['COUPON_CODE']);
     unset($_SESSION['COUPON_VALUE']);
 }
-require ('footer.php');
+require('footer.php');
 ?>

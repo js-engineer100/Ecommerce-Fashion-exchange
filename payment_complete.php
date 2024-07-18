@@ -3,7 +3,7 @@ require('top.php');
 require_once('./vendor/autoload.php');
 
 
-\Stripe\Stripe::setApiKey('sk_test_51POFyg06j16NHU6CwS37vjA1L3zKHRQeXUDMJNjazpJUKItB8OP0KfBW3YaMmkoZLZJ6gyvL0YpBR1NtHV2zMNUR00xlWiehGb');
+\Stripe\Stripe::setApiKey('your stripe secret key');
 
 
 // Check if session_id is present in the URL

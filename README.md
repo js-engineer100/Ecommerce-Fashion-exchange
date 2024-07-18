@@ -30,6 +30,7 @@ Fashion Exchange Store is an online marketplace built with PHP, MySQL, and Boots
 - **Messaging System:** Enable communication between buyers and sellers for smooth transactions.
 - **Feedback & Rating:** Leave reviews and ratings to maintain trust and improve user experience.
 - **Social Media Integration:** Share listings and engage with the community on social platforms.
+- **Payment Gateway Integration:** Pay Hassle free online.
 
 ---
 

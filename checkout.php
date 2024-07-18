@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
     $payment_status = 'pending';
     if ($payment_type == 'cod') {
         $payment_status = 'success';
+        $payment_id = '';
     }
 
     $order_status = '1';
@@ -50,7 +51,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    mysqli_query($conn, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,coupon_id,coupon_code,coupon_value) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$coupon_id','$coupon_code','$coupon_value')");
+    mysqli_query($conn, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,coupon_id,coupon_code,coupon_value,payment_id) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$coupon_id','$coupon_code','$coupon_value','$payment_id')");
 
 
     $order_id = mysqli_insert_id($conn);
@@ -62,10 +63,55 @@ if (isset($_POST['submit'])) {
 
         mysqli_query($conn, "insert into `order_detail`(order_id,product_id,qty,price) values('$order_id','$key','$qty','$price')");
     }
-    unset($_SESSION['cart']);
-    if ($payment_type == 'stripe') {
-    } else {
 
+    if ($payment_type == 'stripe') {
+        // Create a Stripe Checkout session
+        require_once('./vendor/autoload.php'); // Include Stripe PHP library
+
+        \Stripe\Stripe::setApiKey('sk_test_51POFyg06j16NHU6CwS37vjA1L3zKHRQeXUDMJNjazpJUKItB8OP0KfBW3YaMmkoZLZJ6gyvL0YpBR1NtHV2zMNUR00xlWiehGb'); // Replace with your Stripe secret key
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'inr', // Change to your preferred currency
+                    'product_data' => [
+                        'name' => 'Order #' . $order_id,
+                    ],
+                    'unit_amount' => $total_price * 100, // Stripe requires amount in cents
+                ],
+                'quantity' => $qty,
+            ]],
+            'mode' => 'payment',
+            'success_url' => 'http://127.0.0.1/Ecommerce/payment_complete.php?session_id={CHECKOUT_SESSION_ID}', // Replace with your success URL
+            'cancel_url' => 'http://127.0.0.1/Ecommerce/payment_fail.php', // Replace with your cancel URL
+            'metadata' => [
+                'order_id' => $order_id,
+
+            ],
+        ]);
+
+        $_SESSION['STRIPE_CHECKOUT_SESSION_ID'] = $checkout_session->id;
+
+    ?>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+            if (typeof Stripe !== 'undefined') {
+                var stripe = Stripe('pk_test_51POFyg06j16NHU6CLBM5Z5oA1x763L2wfmYe3CFTVKPuCePbaQO1UxZqnwsT4HauQZRQ8eTTfbLigKu19fc9DP1Z00EOO4hvRh'); // Replace with your Stripe publishable key
+                stripe.redirectToCheckout({
+                    sessionId: '<?php echo $checkout_session->id; ?>'
+                }).then(function(result) {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                });
+            } else {
+                console.error('Stripe.js not loaded');
+            }
+        </script>
+    <?php
+    } else {
+        unset($_SESSION['cart']);
     ?>
         <script>
             window.location.href = 'thank_you.php';

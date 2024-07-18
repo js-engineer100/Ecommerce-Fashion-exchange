@@ -1,8 +1,8 @@
 <?php
-require ('top.php');
+require('top.php');
 ?>
-<div class="ht__bradcaump__area"
-    style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -38,4 +38,4 @@ require ('top.php');
     </div>
 </div>
 
-<?php require ('footer.php') ?>
+<?php require('footer.php') ?>

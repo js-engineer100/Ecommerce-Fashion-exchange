@@ -1,15 +1,14 @@
 <?php
-require ('top.php');
+require('top.php');
 if (!isset($_SESSION['USER_LOGIN'])) {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 ?>
-<div class="ht__bradcaump__area"
-    style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -50,27 +49,34 @@ if (!isset($_SESSION['USER_LOGIN'])) {
                                     <?php
                                     $uid = $_SESSION['USER_ID'];
                                     $res = mysqli_query($conn, "select `order`.*,order_status.name as order_status_str from `order`,order_status where `order`.user_id='$uid' and order_status.id=`order`.order_status");
-                                    while ($row = mysqli_fetch_assoc($res)) {
-                                        ?>
-                                        <tr>
-                                            <td class="product-add-to-cart"><a
-                                                    href="my_order_details.php?id=<?php echo $row['id'] ?>">
-                                                    <?php echo $row['id'] ?></a>
-                                                <br />
-                                                <a href="order_pdf.php?id=<?php echo $row['id'] ?>"> PDF</a>
-                                            </td>
-                                            <td class="product-name"><?php echo $row['added_on'] ?></td>
-                                            <td class="product-name">
-                                                <?php echo $row['address'] ?><br />
-                                                <?php echo $row['city'] ?><br />
-                                                <?php echo $row['pincode'] ?>
-                                            </td>
-                                            <td class="product-name"><?php echo $row['payment_type'] ?></td>
-                                            <td class="product-name"><?php echo ucfirst($row['payment_status']) ?></td>
-                                            <td class="product-name"><?php echo $row['order_status_str'] ?></td>
+                                    if (mysqli_num_rows($res) > 0) {
+                                        while ($row = mysqli_fetch_assoc($res)) {
 
-                                        </tr>
-                                    <?php } ?>
+                                    ?>
+                                            <tr>
+                                                <td class="product-add-to-cart"><a href="my_order_details.php?id=<?php echo $row['id'] ?>">
+                                                        <?php echo $row['id'] ?></a>
+                                                    <br />
+                                                    <a href="order_pdf.php?id=<?php echo $row['id'] ?>"> PDF</a>
+                                                </td>
+                                                <td class="product-name"><?php echo $row['added_on'] ?></td>
+                                                <td class="product-name">
+                                                    <?php echo $row['address'] ?><br />
+                                                    <?php echo $row['city'] ?><br />
+                                                    <?php echo $row['pincode'] ?>
+                                                </td>
+                                                <td class="product-name"><?php echo $row['payment_type'] ?></td>
+                                                <td class="product-name"><?php echo ucfirst($row['payment_status']) ?></td>
+                                                <td class="product-name"><?php echo $row['order_status_str'] ?></td>
+
+                                            </tr>
+                                    <?php
+                                        }
+                                    } else {
+                                        // If no orders found
+                                        echo '<tr><td colspan="6"><b style="color:red; font-size:large;">No orders yet...</b></td></tr>';
+                                    }
+                                    ?>
                                 </tbody>
 
                             </table>
@@ -83,4 +89,4 @@ if (!isset($_SESSION['USER_LOGIN'])) {
 </div>
 
 
-<?php require ('footer.php') ?>
+<?php require('footer.php') ?>

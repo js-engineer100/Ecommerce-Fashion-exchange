@@ -13,16 +13,16 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
 $obj = new add_to_cart();
 $totalProduct = $obj->totalProduct();
 
-// if (isset($_SESSION['USER_LOGIN'])) {
-// 	$uid = $_SESSION['USER_ID'];
+if (isset($_SESSION['USER_LOGIN'])) {
+	$uid = $_SESSION['USER_ID'];
 
-// 	if (isset($_GET['wishlist_id'])) {
-// 		$wid = get_safe_value($conn, $_GET['wishlist_id']);
-// 		mysqli_query($conn, "delete from wishlist where id='$wid' and user_id='$uid'");
-// 	}
+	if (isset($_GET['wishlist_id'])) {
+		$wid = get_safe_value($conn, $_GET['wishlist_id']);
+		mysqli_query($conn, "delete from wishlist where id='$wid' and user_id='$uid'");
+	}
 
-// 	$wishlist_count = mysqli_num_rows(mysqli_query($conn, "select product.name,product.image,product.price,product.mrp,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
-// }
+	$wishlist_count = mysqli_num_rows(mysqli_query($conn, "select product.name,product.image,product.price,product.mrp,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+}
 
 $script_name = $_SERVER['SCRIPT_NAME'];
 $script_name_arr = explode('/', $script_name);

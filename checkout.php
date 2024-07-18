@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
         // Create a Stripe Checkout session
         require_once('./vendor/autoload.php'); // Include Stripe PHP library
 
-        \Stripe\Stripe::setApiKey('sk_test_51POFyg06j16NHU6CwS37vjA1L3zKHRQeXUDMJNjazpJUKItB8OP0KfBW3YaMmkoZLZJ6gyvL0YpBR1NtHV2zMNUR00xlWiehGb'); // Replace with your Stripe secret key
+        \Stripe\Stripe::setApiKey('sk_test'); // Replace with your Stripe secret key
 
         $checkout_session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
         <script src="https://js.stripe.com/v3/"></script>
         <script>
             if (typeof Stripe !== 'undefined') {
-                var stripe = Stripe('pk_test_51POFyg06j16NHU6CLBM5Z5oA1x763L2wfmYe3CFTVKPuCePbaQO1UxZqnwsT4HauQZRQ8eTTfbLigKu19fc9DP1Z00EOO4hvRh'); // Replace with your Stripe publishable key
+                var stripe = Stripe('pk_test'); // Replace with your Stripe publishable key
                 stripe.redirectToCheckout({
                     sessionId: '<?php echo $checkout_session->id; ?>'
                 }).then(function(result) {
